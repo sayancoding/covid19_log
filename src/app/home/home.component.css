@@ -1,0 +1,30 @@
+.bg-animation {
+background: linear-gradient(56deg, #9e30d1, #f55087);
+background-size: 400% 400%;
+
+-webkit-animation: rorate-bg 9s ease-out forwards;
+-moz-animation: rorate-bg 9s ease-out forwards;
+-o-animation: rorate-bg 9s ease-out forwards;
+animation: rorate-bg 9s ease-out forwards;
+
+}
+@-webkit-keyframes rorate-bg {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+}
+@-moz-keyframes rorate-bg {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+}
+@-o-keyframes rorate-bg {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+}
+@keyframes rorate-bg {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+}
