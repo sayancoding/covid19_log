@@ -4,6 +4,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Label, MultiDataSet, SingleDataSet } from 'ng2-charts';
 import { ChartType } from 'chart.js';
 import { FormattedUpdate } from '../models/countryDetails';
+import { GlobalDataService } from '../Services/globalData.service';
+import { GlobalDetails } from '../models/globalDetails';
 
 @Component({
   selector: "app-home",
@@ -12,14 +14,21 @@ import { FormattedUpdate } from '../models/countryDetails';
 })
 export class HomeComponent implements OnInit {
   private response: any;
+  private globalResponse:any;
+
   public country: string = "india";
   public lastUpdate:string;
 
   public _data: FormattedUpdate;
+  public _globalData:GlobalDetails;
 
   confirmedValue: number = 0;
   recoveredValue: number = 0;
   deathsValue: number = 0;
+
+  globalConfirmedValue: number = 0;
+  globalRecoveredValue: number = 0;
+  globalDeathsValue: number = 0;
 
   
   // charting
@@ -34,9 +43,10 @@ export class HomeComponent implements OnInit {
   
   // end
 
-  constructor(private _homeService: HomeService) {}
+  constructor(private _homeService: HomeService,private _globalService:GlobalDataService) {}
 
   ngOnInit() {
+    this.showGlobalData();
     this.showdata("india");
     this.doughnutChartData = [
       this.confirmedValue,
@@ -44,6 +54,26 @@ export class HomeComponent implements OnInit {
       this.deathsValue
     ];
   }
+
+  showGlobalData()
+  {
+    this._globalService.getGlobalDetails().subscribe(res=>{
+      this.globalResponse = res;
+
+      this._globalData = this.globalResponse;
+
+      this.globalConfirmedValue = this._globalData.confirmed.value;
+      this.globalRecoveredValue = this._globalData.recovered.value;
+      this.globalDeathsValue = this._globalData.deaths.value;
+
+      console.log(
+        this.globalConfirmedValue,
+        this.globalRecoveredValue,
+        this.globalDeathsValue
+      );
+    })
+  }
+
   showdata(country: string) {
     this._homeService.getData(country).subscribe(res => {
       this.response = res;
