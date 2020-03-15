@@ -8,7 +8,7 @@ export class HomeService {
 
   getData(){
     return this._httpClients.get(
-      "https://covid19.mathdro.id/api/countries/IND"
+      "https://covid19.mathdro.id/api/countries/china"
     );
   }
 
