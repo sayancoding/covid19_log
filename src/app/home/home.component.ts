@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private _homeService: HomeService) {}
 
   ngOnInit() {
-    
+    this.showdata('india');
   }
   showdata(country:string) {
     this._homeService.getData(country).subscribe(res => {
@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   {
     this.country = this.inputCountry.get("country").value;
     this.showdata(this.country);
+    this.inputCountry.reset();
     console.log();
   }
 }
