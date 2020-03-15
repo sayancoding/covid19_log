@@ -9,18 +9,22 @@ import { HomeComponent } from "./home/home.component";
 import { ChartsModule } from "ng2-charts";
 import { HomeService } from "./Services/home.service";
 import { from } from 'rxjs';
+import { MapsComponent } from './home/maps/maps.component';
+import { ConstantsService } from './Services/Constants.service';
+import { LeafletModule } from "@asymmetrik/ngx-leaflet";
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, MapsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ChartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LeafletModule.forRoot()
   ],
-  providers: [HomeService],
+  providers: [HomeService, ConstantsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
