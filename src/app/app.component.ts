@@ -11,9 +11,9 @@ export class AppComponent {
   title = "covid19";
   // Doughnut
   public doughnutChartLabels: Label[] = [
-    "Download Sales",
-    "In-Store Sales",
-    "Mail-Order Sales"
+    "Confirmed Issues",
+    "Suspected Issues",
+    "Rationing Issues"
   ];
   public doughnutChartData: MultiDataSet = [
     [350, 450, 100],
