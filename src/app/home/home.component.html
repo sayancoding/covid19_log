@@ -20,7 +20,7 @@
               <input
                 type="submit"
                 class="md:m-0 rounded-r m-auto uppercase cursor-pointer bg-red-400 p-2"
-                value="get"
+                value="🔍"
               />
             </form>
           </div>
@@ -30,11 +30,11 @@
             class="block bg-gray-100 py-4 rounded-lg border border-black flex justify-evenly flex-wrap flex-col md:flex-row"
           >
             <div class="m-auto mx-3">
-              <div class="text-indigo-700 text-2xl ">
-                Good Morning
+              <div class="text-indigo-700 text-4xl ">
+                {{country | uppercase}}
               </div>
               <div class="text-gray-800 text-sm">
-                Lorem ipsum dolor sit amet.
+                Last Updated on  <span class="text-red-700">"{{lastUpdate | date}}"</span> 
               </div>
             </div>
 
@@ -104,7 +104,7 @@
             <div class="text-indigo-700">@Corona</div>
             <div class="mt-6 mx-6">
               <div
-                class="flex bg-indigo-100 rounded-lg py-4 flex-wrap flex-col md:flex-row justify-evenly"
+                class="flex bg-red-300 rounded-lg py-4 flex-wrap flex-col md:flex-row justify-evenly"
               >
                 <img
                   src="../../assets/stethoscope.png"
@@ -112,14 +112,14 @@
                 />
                 <div class="m-auto flex flex-col">
                   <div class="m-auto">Confirmed</div>
-                  <div class="m-auto text-xs text-indigo-700">
-                    updated today
+                  <div class="m-auto text-xs text-gray-700">
+                    Updated on : {{lastUpdate | date}}
                   </div>
                 </div>
-                <div class="m-auto">{{confirmedValue}}</div>
+                <div class="m-auto text-3xl">{{confirmedValue}}</div>
               </div>
               <div
-                class="flex bg-indigo-100 rounded-lg py-4 mt-4 flex-wrap flex-col md:flex-row justify-evenly"
+                class="flex bg-indigo-300 rounded-lg py-4 mt-4 flex-wrap flex-col md:flex-row justify-evenly"
               >
                 <img
                   src="../../assets/stethoscope.png"
@@ -127,14 +127,14 @@
                 />
                 <div class="m-auto flex flex-col">
                   <div class="m-auto">Recovered</div>
-                  <div class="m-auto text-xs text-indigo-700">
-                    updated today
+                  <div class="m-auto text-xs text-gray-700">
+                    Updated on : {{lastUpdate | date}}
                   </div>
                 </div>
-                <div class="m-auto">{{recoveredValue}}</div>
+                <div class="m-auto text-3xl">{{recoveredValue}}</div>
               </div>
               <div
-                class="flex bg-indigo-100 rounded-lg py-4 mt-4 flex-wrap flex-col md:flex-row justify-evenly"
+                class="flex bg-yellow-300 rounded-lg py-4 mt-4 flex-wrap flex-col md:flex-row justify-evenly"
               >
                 <img
                   src="../../assets/stethoscope.png"
@@ -142,11 +142,11 @@
                 />
                 <div class="m-auto flex flex-col">
                   <div class="m-auto">Deaths</div>
-                  <div class="m-auto text-xs text-indigo-700">
-                    updated today
+                  <div class="m-auto text-xs text-gray-700">
+                    Updated on : {{lastUpdate | date}}
                   </div>
                 </div>
-                <div class="m-auto">{{deathsValue}}</div>
+                <div class="m-auto text-3xl">{{deathsValue}}</div>
               </div>
             </div>
             <div class="mt-6 mx-6">
