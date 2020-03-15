@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  inputCountry = new FormGroup({
+  inputCountry: FormGroup = new FormGroup({
     country : new FormControl(null)
   });
   onSubmit()
