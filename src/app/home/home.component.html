@@ -7,18 +7,18 @@
             <div class="text-left text-xl leading-relaxed ml-4">Welcome To COVID-19</div>
             <div class="text-left ">
               <form [formGroup]="inputCountry" (ngSubmit)="onSubmit()" class="flex flex-wrap" >
-                <input type="text" class="bg-gray-100 p-2" formControlName="country">
-                <input class="md:m-0 m-auto" type="submit" class=" uppercase cursor-pointer bg-red-400 p-2" value="get">
+                <input type="text" class="bg-gray-100 rounded-l p-2" formControlName="country">
+                <input type="submit" class="md:m-0 rounded-r m-auto uppercase cursor-pointer bg-red-400 p-2" value="get">
               </form>
             </div>
           </div>
-          <div class="mt-4">
-            <div class="block bg-gray-100 py-4 flex justify-evenly flex-wrap flex-col md:flex-row">
-              <div class=" mx-3">
-                <div class="text-indigo-700 ">
+          <div class="mt-8">
+            <div class="block bg-gray-100 py-4 rounded-lg border border-black flex justify-evenly flex-wrap flex-col md:flex-row">
+              <div class="m-auto mx-3">
+                <div class="text-indigo-700 text-2xl ">
                   Good Morning
                 </div>
-                <div class="text-gray-800 text-xs">
+                <div class="text-gray-800 text-sm">
                   Lorem ipsum dolor sit amet.
                 </div>
               </div>
