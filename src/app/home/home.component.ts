@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../Services/home.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: "app-home",
@@ -7,18 +8,27 @@ import { HomeService } from '../Services/home.service';
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  data : {}
-  
+  data: {};
+  country:string;
   constructor(private _homeService: HomeService) {}
 
-
   ngOnInit() {
-    this.showdata() ;
+    
   }
-  showData() {
-    this._homeService.getData().subscribe(res => {
-      this.data = res ;
+  showdata(country:string) {
+    this._homeService.getData(country).subscribe(res => {
+      this.data = res;
       console.log(res);
     });
+  }
+
+  inputCountry = new FormGroup({
+    country : new FormControl(null)
+  });
+  onSubmit()
+  {
+    this.country = this.inputCountry.get("country").value;
+    this.showdata(this.country);
+    console.log();
   }
 }
