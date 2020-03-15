@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   globalDeathsValue: number = 0;
 
   
-  // charting
+  // country chart JS
   
   public doughnutChartLabels: Label[] = [
     "Confirmation Issues",
@@ -41,7 +41,17 @@ export class HomeComponent implements OnInit {
   public doughnutChartData: SingleDataSet;
   public doughnutChartType: ChartType = "doughnut";
   
-  // end
+
+  // global Chart JS
+
+  public globalDoughnutChartLabels: Label[] = [
+    "Confirmation Issues",
+    "Recovered Issues",
+    "Death Issues"
+  ];
+  public globalDoughnutChartData: SingleDataSet;
+  public globalDoughnutChartType: ChartType = "doughnut";
+  
 
   constructor(private _homeService: HomeService,private _globalService:GlobalDataService) {}
 
@@ -52,6 +62,11 @@ export class HomeComponent implements OnInit {
       this.confirmedValue,
       this.recoveredValue,
       this.deathsValue
+    ];
+    this.globalDoughnutChartData = [
+      this.globalConfirmedValue,
+      this.globalRecoveredValue,
+      this.globalDeathsValue
     ];
   }
 
@@ -91,6 +106,13 @@ export class HomeComponent implements OnInit {
         this.recoveredValue,
         this.deathsValue
       ];
+
+      this.globalDoughnutChartData = [
+      this.globalConfirmedValue,
+      this.globalRecoveredValue,
+      this.globalDeathsValue
+    ];
+
     });
   }
 
