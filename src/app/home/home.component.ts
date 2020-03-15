@@ -3,6 +3,7 @@ import { HomeService } from '../Services/home.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Label, MultiDataSet } from 'ng2-charts';
 import { ChartType } from 'chart.js';
+import { FormattedUpdate } from '../models/countryDetails';
 
 @Component({
   selector: "app-home",
@@ -10,8 +11,15 @@ import { ChartType } from 'chart.js';
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  data: {};
-  country: string;
+  private response:any ;
+  private country: string;
+
+  public _data: FormattedUpdate ;
+  
+
+  confirmedValue:number = 0 ;
+  recoveredValue:number = 0 ;
+  deathsValue:number = 0 ;
 
   constructor(private _homeService: HomeService) {}
 
@@ -20,8 +28,15 @@ export class HomeComponent implements OnInit {
   }
   showdata(country: string) {
     this._homeService.getData(country).subscribe(res => {
-      this.data = res;
-      console.log(res);
+       this.response = res;
+       // this.formattedUpdate.confirmed = this.data.confirmed.value;
+       this._data = this.response ;
+
+       this.confirmedValue = this._data.confirmed.value;
+       this.recoveredValue = this._data.recovered.value;
+       this.deathsValue = this._data.deaths.value;
+      console.log(this.confirmedValue,this.deathsValue,this.recoveredValue)
+
     });
   }
 
@@ -43,9 +58,11 @@ export class HomeComponent implements OnInit {
     "Panademic Issues"
   ];
   public doughnutChartData: MultiDataSet = [
-    [350, 450, 100],
-    [50, 150, 120],
-    [250, 130, 70],
+    [ 
+      this.confirmedValue,
+      this.recoveredValue,
+      this.deathsValue
+     ]
   ];
   public doughnutChartType: ChartType = "doughnut";
 
