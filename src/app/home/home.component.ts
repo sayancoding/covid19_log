@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from './home.service';
+import { HomeService } from '../Services/home.service';
 
 @Component({
   selector: "app-home",
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-    this.showData();
+    this.showdata() ;
   }
   showData() {
     this._homeService.getData().subscribe(res => {
