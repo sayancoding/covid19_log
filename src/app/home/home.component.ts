@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     "Death Issues"
   ];
   public doughnutChartData: SingleDataSet;
-  public doughnutChartType: ChartType = "doughnut";
+  public doughnutChartType: ChartType = "pie";
   
 
   // global Chart JS
