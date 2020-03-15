@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit {
   
   public doughnutChartLabels: Label[] = [
     "Confirmation Issues",
-    "Affected Issues",
-    "Panademic Issues"
+    "Recovered Issues",
+    "Death Issues"
   ];
   public doughnutChartData: SingleDataSet;
   public doughnutChartType: ChartType = "doughnut";
