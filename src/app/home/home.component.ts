@@ -12,7 +12,8 @@ import { FormattedUpdate } from '../models/countryDetails';
 })
 export class HomeComponent implements OnInit {
   private response: any;
-  private country: string;
+  public country: string = "india";
+  public lastUpdate:string;
 
   public _data: FormattedUpdate;
 
@@ -52,6 +53,7 @@ export class HomeComponent implements OnInit {
       this.confirmedValue = this._data.confirmed.value;
       this.recoveredValue = this._data.recovered.value;
       this.deathsValue = this._data.deaths.value;
+      this.lastUpdate = this._data.lastUpdate;
       console.log(this.confirmedValue, this.deathsValue, this.recoveredValue);
 
       this.doughnutChartData = [
