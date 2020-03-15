@@ -99,12 +99,12 @@
               src="../../assets/doctor.png"
             />
             <div class="text-black leading-relaxed ">
-              World Health Organization
+              World Health Organization (WHO)
             </div>
             <div class="text-indigo-700">@Corona</div>
             <div class="mt-6 mx-6">
               <div
-                class="flex bg-indigo-100 rounded-lg flex-wrap flex-col md:flex-row justify-evenly"
+                class="flex bg-indigo-100 rounded-lg py-4 flex-wrap flex-col md:flex-row justify-evenly"
               >
                 <img
                   src="../../assets/stethoscope.png"
@@ -116,22 +116,37 @@
                     updated today
                   </div>
                 </div>
-                <div class="m-auto">3</div>
+                <div class="m-auto">{{confirmedValue}}</div>
               </div>
               <div
-                class="flex bg-indigo-100 rounded-lg mt-4 flex-wrap flex-col md:flex-row justify-evenly"
+                class="flex bg-indigo-100 rounded-lg py-4 mt-4 flex-wrap flex-col md:flex-row justify-evenly"
               >
                 <img
                   src="../../assets/stethoscope.png"
                   class="w-12 rounded-full p-2"
                 />
                 <div class="m-auto flex flex-col">
-                  <div class="m-auto">Panademic</div>
+                  <div class="m-auto">Recovered</div>
                   <div class="m-auto text-xs text-indigo-700">
                     updated today
                   </div>
                 </div>
-                <div class="m-auto">3</div>
+                <div class="m-auto">{{recoveredValue}}</div>
+              </div>
+              <div
+                class="flex bg-indigo-100 rounded-lg py-4 mt-4 flex-wrap flex-col md:flex-row justify-evenly"
+              >
+                <img
+                  src="../../assets/stethoscope.png"
+                  class="w-12 rounded-full p-2"
+                />
+                <div class="m-auto flex flex-col">
+                  <div class="m-auto">Deaths</div>
+                  <div class="m-auto text-xs text-indigo-700">
+                    updated today
+                  </div>
+                </div>
+                <div class="m-auto">{{deathsValue}}</div>
               </div>
             </div>
             <div class="mt-6 mx-6">
