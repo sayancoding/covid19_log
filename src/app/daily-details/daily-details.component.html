@@ -1,2 +1,19 @@
-<p>daily-details works!</p>
-{{dailyDetails | json}}
+<section class="bg-white rounded-lg">
+  <div class="mt-6">
+      <div class="text-2xl py-3">Global Analytics Chart</div>
+  </div>
+
+  <div class="m-auto p-6  mt-6 ">
+    <div style="display: block">
+      <canvas baseChart
+        [datasets]="bubbleChartData"
+        [options]="bubbleChartOptions"
+        [colors]="bubbleChartColors"
+        [legend]="bubbleChartLegend"
+        [chartType]="bubbleChartType">
+      </canvas>
+    </div>
+  </div>
+
+
+</section>
