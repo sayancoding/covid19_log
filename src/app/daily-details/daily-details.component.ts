@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DailyUpdateService } from "../Services/dailyUpdate.service";
-import { Color } from "ng2-charts";
-import { ChartType, ChartDataSets, ChartOptions } from "chart.js";
+import { Color, Label, SingleDataSet } from "ng2-charts";
+import { ChartType, ChartDataSets, ChartOptions, RadialChartOptions } from "chart.js";
 
 @Component({
   selector: "app-daily-details",
@@ -80,4 +80,69 @@ export class DailyDetailsComponent implements OnInit {
       this.dailyDetails = res;
     });
   }
+
+  // flex charts
+
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+    // We use these empty structures as placeholders for dynamic theming.
+    scales: { xAxes: [{}], yAxes: [{}] },
+    plugins: {
+      datalabels: {
+        anchor: "end",
+        align: "end"
+      }
+    }
+  };
+  public barChartLabels: Label[] = [
+    "2006",
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012"
+  ];
+  public barChartType: ChartType = "bar";
+  public barChartLegend = true;
+  // public barChartPlugins = [pluginDataLabels];
+
+  public barChartData: ChartDataSets[] = [
+    { data: [65, 59, 80, 81, 56, 55, 40], label: "Series A" },
+    { data: [28, 48, 40, 19, 86, 27, 90], label: "Series B" }
+  ];
+
+  // 2nd graph
+  public radarChartOptions: RadialChartOptions = {
+    responsive: true
+  };
+  public radarChartLabels: Label[] = [
+    "Eating",
+    "Drinking",
+    "Sleeping",
+    "Designing",
+    "Coding",
+    "Cycling",
+    "Running"
+  ];
+
+  public radarChartData: ChartDataSets[] = [
+    { data: [65, 59, 90, 81, 56, 55, 40], label: "Series A" },
+    { data: [28, 48, 40, 19, 96, 27, 100], label: "Series B" }
+  ];
+  public radarChartType: ChartType = "radar";
+
+  // third chart
+  public polarAreaChartLabels: Label[] = [
+    "Download Sales",
+    "In-Store Sales",
+    "Mail Sales",
+    "Telesales",
+    "Corporate Sales"
+  ];
+  public polarAreaChartData: SingleDataSet = [300, 500, 100, 40, 120];
+  public polarAreaLegend = true;
+
+  public polarAreaChartType: ChartType = "polarArea";
+  
 }

@@ -1,4 +1,4 @@
-<section class="bg-white max-w-2xl m-auto">
+<!-- <section class="bg-white max-w-2xl m-auto">
   <div class="m-auto md:p-6  mt-6 ">
     <div style="display: block">
       <canvas baseChart
@@ -12,4 +12,52 @@
   </div>
 
 
-</section>
+</section> -->
+
+<div class="flex flex-wrap flex-col  md:flex-row justify-evenly">
+  <div class="m-auto">
+    <div>
+      <div>
+        <div style="display: block">
+          <canvas
+            baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="m-auto">
+    <div>
+      <div style="display: block">
+        <canvas
+          baseChart
+          [datasets]="radarChartData"
+          [options]="radarChartOptions"
+          [labels]="radarChartLabels"
+          [chartType]="radarChartType"
+        >
+        </canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-auto ">
+    <div style="display: block">
+      <canvas
+        baseChart
+        [data]="polarAreaChartData"
+        [labels]="polarAreaChartLabels"
+        [legend]="polarAreaLegend"
+        [chartType]="polarAreaChartType"
+      >
+      </canvas>
+    </div>
+  </div>
+</div>
