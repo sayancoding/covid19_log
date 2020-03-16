@@ -100,7 +100,7 @@
 
 
     </div>
-    <div class="text-center m-auto w-1/3 m-auto">
+    <div class="text-center m-auto w-1/3 ">
       <div class="w-full md:mt-0 mt-6">
         <section>
           <div class="m-auto">
@@ -115,13 +115,13 @@
               World Health Organization
             </div>
             <div class="text-indigo-700">@Corona</div>
-            <div class="mt-6 mx-6">
+            <div class="mt-6 flex flex-col flex-wrap  mx-6">
               <div
-                class="flex bg-red-300 rounded-lg py-4 flex-wrap flex-col md:flex-row justify-evenly"
+                class="flex bg-indigo-300 rounded-lg py-4 px-4 md:px-0 mt-4 flex-wrap flex-row justify-evenly"
               >
                 <img
                   src="../../assets/stethoscope.png"
-                  class="w-12 rounded-full p-2"
+                  class="w-12 rounded-full p-2 md:m-0 m-auto"
                 />
                 <div class="m-auto flex flex-col">
                   <div class="m-auto">Confirmed</div>
@@ -136,7 +136,7 @@
               >
                 <img
                   src="../../assets/stethoscope.png"
-                  class="w-12 rounded-full p-2"
+                  class="w-12 rounded-full p-2 md:m-0 m-auto"
                 />
                 <div class="m-auto flex flex-col">
                   <div class="m-auto">Recovered</div>
@@ -146,12 +146,14 @@
                 </div>
                 <div class="m-auto text-3xl">{{recoveredValue}}</div>
               </div>
+
+
               <div
                 class="flex bg-yellow-300 rounded-lg py-4 mt-4 flex-wrap flex-col md:flex-row justify-evenly"
               >
                 <img
                   src="../../assets/cartoon-skull.png"
-                  class="w-12 rounded-full p-2"
+                  class="w-12 rounded-full p-2 md:m-0 m-auto"
                 />
                 <div class="m-auto flex flex-col">
                   <div class="m-auto">Deaths</div>
