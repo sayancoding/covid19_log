@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { HomeService } from '../Services/home.service';
-import { FormGroup, FormControl } from '@angular/forms';
-import { Label, MultiDataSet, SingleDataSet } from 'ng2-charts';
-import { ChartType } from 'chart.js';
-import { FormattedUpdate } from '../models/countryDetails';
-import { GlobalDataService } from '../Services/globalData.service';
-import { GlobalDetails } from '../models/globalDetails';
+import { Component, OnInit } from "@angular/core";
+import { HomeService } from "../Services/home.service";
+import { FormGroup, FormControl } from "@angular/forms";
+import { Label, MultiDataSet, SingleDataSet } from "ng2-charts";
+import { ChartType } from "chart.js";
+import { FormattedUpdate } from "../models/countryDetails";
+import { GlobalDataService } from "../Services/globalData.service";
+import { GlobalDetails } from "../models/globalDetails";
 
 @Component({
   selector: "app-home",
@@ -14,13 +14,13 @@ import { GlobalDetails } from '../models/globalDetails';
 })
 export class HomeComponent implements OnInit {
   private response: any;
-  private globalResponse:any;
+  private globalResponse: any;
 
   public country: string = "india";
-  public lastUpdate:string;
+  public lastUpdate: string;
 
   public _data: FormattedUpdate;
-  public _globalData:GlobalDetails;
+  public _globalData: GlobalDetails;
 
   confirmedValue: number = 0;
   recoveredValue: number = 0;
@@ -30,17 +30,15 @@ export class HomeComponent implements OnInit {
   globalRecoveredValue: number = 0;
   globalDeathsValue: number = 0;
 
-  
   // country chart JS
-  
+
   public doughnutChartLabels: Label[] = [
     "Confirmation Issues",
     "Recovered Issues",
     "Death Issues"
   ];
   public doughnutChartData: SingleDataSet;
-  public doughnutChartType: ChartType = "doughnut";
-  
+  public doughnutChartType: ChartType = "pie";
 
   // global Chart JS
 
@@ -49,11 +47,13 @@ export class HomeComponent implements OnInit {
     "Recovered Issues",
     "Death Issues"
   ];
-  public globalDoughnutChartData: SingleDataSet;
+  public globalDoughnutChartData: MultiDataSet;
   public globalDoughnutChartType: ChartType = "doughnut";
-  
 
-  constructor(private _homeService: HomeService,private _globalService:GlobalDataService) {}
+  constructor(
+    private _homeService: HomeService,
+    private _globalService: GlobalDataService
+  ) {}
 
   ngOnInit() {
     this.showGlobalData();
@@ -64,15 +64,21 @@ export class HomeComponent implements OnInit {
       this.deathsValue
     ];
     this.globalDoughnutChartData = [
-      this.globalConfirmedValue,
-      this.globalRecoveredValue,
-      this.globalDeathsValue
+      [
+        this.globalConfirmedValue,
+        this.globalRecoveredValue,
+        this.globalDeathsValue
+      ],
+      [
+        this.globalRecoveredValue * 3,
+        this.globalConfirmedValue * 0.249,
+        this.globalDeathsValue * 0.45
+      ]
     ];
   }
 
-  showGlobalData()
-  {
-    this._globalService.getGlobalDetails().subscribe(res=>{
+  showGlobalData() {
+    this._globalService.getGlobalDetails().subscribe(res => {
       this.globalResponse = res;
 
       this._globalData = this.globalResponse;
@@ -86,7 +92,7 @@ export class HomeComponent implements OnInit {
         this.globalRecoveredValue,
         this.globalDeathsValue
       );
-    })
+    });
   }
 
   showdata(country: string) {
@@ -108,11 +114,17 @@ export class HomeComponent implements OnInit {
       ];
 
       this.globalDoughnutChartData = [
-      this.globalConfirmedValue,
-      this.globalRecoveredValue,
-      this.globalDeathsValue
-    ];
-
+        [
+          this.globalConfirmedValue,
+          this.globalRecoveredValue,
+          this.globalDeathsValue
+        ],
+        [
+          this.globalRecoveredValue * 3,
+          this.globalConfirmedValue * 0.249,
+          this.globalDeathsValue * 0.45
+        ]
+      ];
     });
   }
 
