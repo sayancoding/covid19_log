@@ -6,6 +6,8 @@ import { ChartType } from "chart.js";
 import { FormattedUpdate } from "../models/countryDetails";
 import { GlobalDataService } from "../Services/globalData.service";
 import { GlobalDetails } from "../models/globalDetails";
+import { DatePipe } from '@angular/common';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: "app-home",
@@ -18,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   public country: string = "india";
   public lastUpdate: string;
+  public formattedLastUpdate: string;
 
   public _data: FormattedUpdate;
   public _globalData: GlobalDetails;
@@ -52,7 +55,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _homeService: HomeService,
-    private _globalService: GlobalDataService
+    private _globalService: GlobalDataService,
+    private _eventEmitter: EventEmitter
   ) {}
 
   ngOnInit() {
@@ -105,6 +109,9 @@ export class HomeComponent implements OnInit {
       this.recoveredValue = this._data.recovered.value;
       this.deathsValue = this._data.deaths.value;
       this.lastUpdate = this._data.lastUpdate;
+
+      this._eventEmitter.emit("lastUpdate", this.lastUpdate);
+
       console.log(this.confirmedValue, this.deathsValue, this.recoveredValue);
 
       this.doughnutChartData = [

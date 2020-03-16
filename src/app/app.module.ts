@@ -12,10 +12,13 @@ import { from } from 'rxjs';
 import { MapsComponent } from './home/maps/maps.component';
 import { ConstantsService } from './Services/Constants.service';
 import { LeafletModule } from "@asymmetrik/ngx-leaflet";
+import { DatePipe } from '@angular/common';
+import { EventEmitter } from 'events';
+import { DailyDetailsComponent } from './daily-details/daily-details.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, MapsComponent],
+  declarations: [AppComponent, HomeComponent, MapsComponent, DailyDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,7 +27,7 @@ import { LeafletModule } from "@asymmetrik/ngx-leaflet";
     ReactiveFormsModule,
     LeafletModule.forRoot()
   ],
-  providers: [HomeService, ConstantsService],
+  providers: [HomeService, ConstantsService, DatePipe, EventEmitter],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = "covid19";
-  ol: any
-  constructor() {}
+  constructor() {
+  } 
 }
