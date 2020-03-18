@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { DailyUpdateService } from "../Services/dailyUpdate.service";
 import { Color, Label, SingleDataSet } from "ng2-charts";
 import { ChartType, ChartDataSets, ChartOptions, RadialChartOptions } from "chart.js";
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: "app-daily-details",
@@ -10,6 +11,9 @@ import { ChartType, ChartDataSets, ChartOptions, RadialChartOptions } from "char
 })
 export class DailyDetailsComponent implements OnInit {
   // applying logics
+
+  private datee = new Date().toLocaleString();
+  private today_date: string ;
 
   public bubbleChartOptions: ChartOptions = {
     responsive: true,
@@ -73,7 +77,11 @@ export class DailyDetailsComponent implements OnInit {
   ];
 
   dailyDetails: any;
-  constructor(private _dailyService: DailyUpdateService) {}
+  constructor(private _dailyService: DailyUpdateService, private _datePipe : DatePipe) {
+    this.today_date = _datePipe.transform(this.datee, 'dd-MM-yyyy') ;
+    console.log(this.today_date);
+    
+  }
 
   ngOnInit() {
     this._dailyService.getDailyUpdate().subscribe(res => {
@@ -94,6 +102,7 @@ export class DailyDetailsComponent implements OnInit {
       }
     }
   };
+
   public barChartLabels: Label[] = [
     "04-Mar-2020",
     "08-Mar-2020",
@@ -101,7 +110,7 @@ export class DailyDetailsComponent implements OnInit {
     "12-Mar-2020",
     "14-Mar-2020",
     "15-Mar-2020",
-    "16-Mar-2020"
+    this.datee
   ];
   public barChartType: ChartType = "bar";
   public barChartLegend = true;
@@ -143,5 +152,4 @@ export class DailyDetailsComponent implements OnInit {
   public polarAreaLegend = true;
 
   public polarAreaChartType: ChartType = "polarArea";
-  
 }
