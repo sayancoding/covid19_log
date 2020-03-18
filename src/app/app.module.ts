@@ -16,10 +16,11 @@ import { DatePipe } from '@angular/common';
 import { EventEmitter } from 'events';
 import { DailyDetailsComponent } from './daily-details/daily-details.component';
 import { DeveloperComponent } from './developer/developer.component';
+import { PrecautionsComponent } from './precautions/precautions.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, MapsComponent, DailyDetailsComponent, DeveloperComponent],
+  declarations: [AppComponent, HomeComponent, MapsComponent, DailyDetailsComponent, DeveloperComponent, PrecautionsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -169,19 +169,29 @@
     </div>
   </div>
 
-  <section class="m-auto p-3 rounded-lg mt-1">
-    <div class="text-center mt-6">
-      <button
-      [routerLink]="['/map-live-coverage']"
-      routerLinkActive="router-link-active"
-      class=" px-6 py-3 uppercase rounded-lg leading-relaxed bg-indigo-600 text-white"
-    >
-      See Live Data
-    </button>
-    </div>
-    <div>
-      <router-outlet></router-outlet>
-    </div>
+  <section class="max-w-6xl rounded mt-6 mx-auto">
+    <div class="flex justify-center mb-2">
+
+      <div class="text-center mt-6 mr-2">
+        <button
+        [routerLink]="['/precautions']"
+        routerLinkActive="router-link-active"
+        class=" px-6 py-3 uppercase rounded-lg leading-relaxed bg-red-400 text-black"
+      >
+        Know Precautions
+      </button>
+      </div>
+      <div class="text-center mt-6">
+        <button
+        [routerLink]="['/map-live-coverage']"
+        routerLinkActive="router-link-active"
+        class=" px-6 py-3 uppercase rounded-lg leading-relaxed bg-indigo-600 text-white"
+      >
+        See Live Data
+      </button>
+      </div>
+    </div>    
+    <router-outlet></router-outlet>
   </section>
 
   <section
