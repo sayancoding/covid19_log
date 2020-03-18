@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = "covid19";
   constructor() {
-    alert(" Preferably View this ON DESKTOP MODE 💻")
+    alert(" Preferably View on DESKTOP MODE 💻")
   } 
 }
