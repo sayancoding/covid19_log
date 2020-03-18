@@ -15,10 +15,11 @@ import { LeafletModule } from "@asymmetrik/ngx-leaflet";
 import { DatePipe } from '@angular/common';
 import { EventEmitter } from 'events';
 import { DailyDetailsComponent } from './daily-details/daily-details.component';
+import { DeveloperComponent } from './developer/developer.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, MapsComponent, DailyDetailsComponent],
+  declarations: [AppComponent, HomeComponent, MapsComponent, DailyDetailsComponent, DeveloperComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
